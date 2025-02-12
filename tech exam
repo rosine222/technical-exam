@@ -1,0 +1,30 @@
+// A FUNCTION COUNTROLES
+function countRoles(users) {
+    const roleCounts = { admin: 0, instructor: 0, student: 0 };
+    
+    for (let user of users) {
+        if (user.role === 'admin') {
+            roleCounts.admin++;
+        } else if (user.role === 'instructor') {
+            roleCounts.instructor++;
+        } else if (user.role === 'student') {
+            roleCounts.student++;
+        }
+    }
+
+    return roleCounts;
+}
+// b. findAdmins(users) function
+function findAdmins(users) {
+    return users.filter(user => user.role === 'admin').map(user => user.name);
+}
+// c. Modified findAdmins(users) function
+// This function will return "No admins found" if there are no admins.
+function findAdmins(users) {
+    const admins = users.filter(user => user.role === 'admin').map(user => user.name);
+    return admins.length > 0 ? admins : "No admins found";
+}
+// d. generateWelcomeMessages(users) function
+// This function will use the map method to generate welcome messages for each user.
+function generateWelcomeMessages(users){
+    return users.map(user =>)}
