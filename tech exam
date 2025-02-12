@@ -28,3 +28,101 @@ function findAdmins(users) {
 // This function will use the map method to generate welcome messages for each user.
 function generateWelcomeMessages(users){
     return users.map(user =>)}
+
+    // Advantages of Using map and filter.
+// *Syntax: map and filter often result in shorter and more readable code. They reduce the boilerplate associated with traditional loops, making your code cleaner and easier to understand.
+    
+// *Declaration: These methods clearly state the intent of what you want to achieve, making it easier for someone reading your code to grasp your logic quickly.
+    
+// *Functions: map and filter return new arrays without modifying the original array. This encourages a more functional programming approach, where functions are pure and side effects are minimized.
+
+// * These methods can be chained together, allowing for complex operations to be expressed in a concise and readable way. For example, you can chain filter and map together to first filter the elements of an array and then transform them.
+    
+// *Functional Style: Since map and filter do not rely on variables outside their scope, they help avoid unintended side effects that can occur with traditional loops.
+    
+// *In many modern JavaScript engines, array methods like map and filter are optimized for performance, sometimes making them faster than a hand-rolled loop.
+
+    
+
+//   2. a. Function to get Subject Averages
+// javascript
+function getSubjectAverages(students) {
+  const subjects = Object.keys(students[0].grades);
+  const averages = {};
+
+  subjects.forEach(subject => {
+    const total = students.reduce((sum, student) => sum + student.grades[subject], 0);
+    averages[subject] = total / students.length;
+  });
+
+  return averages;
+}
+
+// console.log(getSubjectAverages(students)); 
+// b. Function to Find the Top Student
+// javascript
+function findTopStudent(subject, students) {
+  let topStudent = null;
+  let highestGrade = -1;
+
+  students.forEach(student => {
+    if (student.grades[subject] > highestGrade) {
+      highestGrade = student.grades[subject];
+      topStudent = student.name;
+    }
+  });
+
+  return topStudent;
+}
+// console.log(findTopStudent("math", students)); 
+// c. Function to Add Extra Credit
+// javascript
+function addExtraCredit(students, points) {
+  return students.map(student => {
+    const updatedGrades = {};
+    for (let subject in student.grades) {
+      updatedGrades[subject] = Math.min(student.grades[subject] + points, 100);
+    }
+    return { ...student, grades: updatedGrades };
+  });
+}
+// d. Modify Find Top Student Function
+// javascript
+function findTopStudent(subject, students) {
+  if (!students[0].grades.hasOwnProperty(subject)) {
+    return "No data available";
+  }
+
+  let topStudent = null;
+  let highestGrade = -1;
+
+  students.forEach(student => {
+    if (student.grades[subject] > highestGrade) {
+      highestGrade = student.grades[subject];
+      topStudent = student.name;
+    }
+  });
+
+  return topStudent;
+}
+// console.log(findTopStudent("art", students)); 
+// e. Discussing Object Destructuring
+// Object destructuring can greatly simplify working with this data structure by allowing you to extract properties directly into variables. Here's a quick example:
+
+const person = {
+    name: 'rosine',
+    age: 30,
+    address: {
+      city: 'kigali',
+      country: 'rwanda',
+    },
+    occupation: 'Software Developer',
+  };
+//   if have this code without like this:
+const;name
+const;age
+const;address
+const;occupation
+
+  
+ 
